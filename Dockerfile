@@ -1,5 +1,5 @@
 FROM debian:jessie
-MAINTAINER marco [dot] turi [at] hotmail [dot] it
+MAINTAINER kontakt [at] lukas-kaemmerling [dot] de
 
 ENV DEBIAN_FRONTEND=noninteractive \
     ANDROID_HOME=/opt/android-sdk-linux \
