@@ -63,7 +63,7 @@ RUN apt-get update &&  \
     # Export display for Chrome
     export DISPLAY=:99 && \
 # Launch Xvfb
-    "Xvfb :0 -ac -screen 0 1024x768x24 &"
+    Xvfb :0 -ac -screen 0 1024x768x24 &
 
 # Setup environment
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:/opt/gradle/gradle-${GRADLE_VERSION}/bin
