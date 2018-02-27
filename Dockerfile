@@ -3,8 +3,8 @@ MAINTAINER kontakt [at] lukas-kaemmerling [dot] de
 
 ENV DEBIAN_FRONTEND=noninteractive \
     ANDROID_HOME=/opt/android-sdk-linux \
-    NPM_VERSION=5.5.1 \
-    IONIC_VERSION=3.19.0 \
+    NPM_VERSION=5.6.0 \
+    IONIC_VERSION=3.19.1 \
     CORDOVA_VERSION=7.1.0 \
     YARN_VERSION=1.3.2 \
     GRADLE_VERSION=4.4.1 \
@@ -28,6 +28,11 @@ RUN apt-get update &&  \
     rm google-chrome-stable_current_amd64.deb && \
     mkdir Sources && \
     mkdir -p /root/.cache/yarn/ && \
+    apt-get -qq install -y google-chrome-stable xvfb gtk2-engines-pixbuf xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable imagemagick x11-apps default-jre && \
+    # Launch Xvfb
+    Xvfb :0 -ac -screen 0 1024x768x24 & && \
+    # Export display for Chrome
+    export DISPLAY=:99 && \
 
 # Font libraries
     apt-get -qqy install fonts-ipafont-gothic xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable libfreetype6 libfontconfig && \
