@@ -59,11 +59,7 @@ RUN apt-get update &&  \
     wget --output-document=gradle.zip --quiet https://services.gradle.org/distributions/gradle-"$GRADLE_VERSION"-bin.zip && \
     unzip -q gradle.zip && \
     rm -f gradle.zip && \
-    chown -R root. /opt && \
-    # Export display for Chrome
-    export DISPLAY=:99 && \
-# Launch Xvfb
-    Xvfb :0 -ac -screen 0 1024x768x24 &
+    chown -R root. /opt
 
 # Setup environment
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:/opt/gradle/gradle-${GRADLE_VERSION}/bin
