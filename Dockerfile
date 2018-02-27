@@ -29,10 +29,6 @@ RUN apt-get update &&  \
     mkdir Sources && \
     mkdir -p /root/.cache/yarn/ && \
     apt-get -qq install -y google-chrome-stable xvfb gtk2-engines-pixbuf xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable imagemagick x11-apps default-jre && \
-    # Launch Xvfb
-    Xvfb :0 -ac -screen 0 1024x768x24 & && \
-    # Export display for Chrome
-    export DISPLAY=:99 && \
 
 # Font libraries
     apt-get -qqy install fonts-ipafont-gothic xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable libfreetype6 libfontconfig && \
@@ -64,7 +60,10 @@ RUN apt-get update &&  \
     unzip -q gradle.zip && \
     rm -f gradle.zip && \
     chown -R root. /opt
-
+# Launch Xvfb
+    Xvfb :0 -ac -screen 0 1024x768x24 & && \
+# Export display for Chrome
+    export DISPLAY=:99
 # Setup environment
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:/opt/gradle/gradle-${GRADLE_VERSION}/bin
 
