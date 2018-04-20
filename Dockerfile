@@ -3,10 +3,10 @@ MAINTAINER kontakt [at] lukas-kaemmerling [dot] de
 
 ENV DEBIAN_FRONTEND=noninteractive \
     ANDROID_HOME=/opt/android-sdk-linux \
-    NPM_VERSION=5.6.0 \
-    IONIC_VERSION=3.19.1 \
+    NPM_VERSION=5.8.0 \
+    IONIC_VERSION=3.20.0 \
     CORDOVA_VERSION=7.1.0 \
-    YARN_VERSION=1.3.2 \
+    YARN_VERSION=1.6.0 \
     GRADLE_VERSION=4.4.1 \
     # Fix for the issue with Selenium, as described here:
     # https://github.com/SeleniumHQ/docker-selenium/issues/87
