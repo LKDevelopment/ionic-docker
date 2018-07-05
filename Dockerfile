@@ -59,7 +59,10 @@ RUN apt-get update &&  \
     wget --output-document=gradle.zip --quiet https://services.gradle.org/distributions/gradle-"$GRADLE_VERSION"-bin.zip && \
     unzip -q gradle.zip && \
     rm -f gradle.zip && \
-    chown -R root. /opt
+    chown -R root. /opt && \
+# Install Virtual Display emulator
+    apt-get install -y xvfb
+
 
 # Setup environment
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:/opt/gradle/gradle-${GRADLE_VERSION}/bin
